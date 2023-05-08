@@ -145,10 +145,9 @@ def train(pid, shared_actor, shared_critic, learning_rate):
         # Log metrics.
         if episode % 100 == 0:
             episode_rewards_ = episode_rewards[-100:]
-            avg_reward = sum(episode_rewards_)/len(episode_rewards_)
-            stat_file = open("results.txt", "a", encoding="utf8")
-            print(f"EPISODE: {episode}", file=stat_file)
-            print(f"{pid} - Average Reward: {avg_reward}", file=stat_file)
+            avg_reward = sum(episode_rewards_)/len(episode_rewards_)           
+            print(f"EPISODE: {episode}")
+            print(f"{pid} - Average Reward: {avg_reward}")
             stat_file.close()
 
         if episode > MAX_EPISODE:
@@ -161,9 +160,9 @@ def train(pid, shared_actor, shared_critic, learning_rate):
             break
     return 0
 
-stat_file = open("results.txt", "w", encoding="utf8")
-print("*********START TRAINING************", file=stat_file)
-stat_file.close()
+
+print("*********START TRAINING************")
+
 
 if __name__ == '__main__':
     # Set the method to start a subprocess.
@@ -189,15 +188,10 @@ if __name__ == '__main__':
 
     # Wait for all processes to complete
     for p in processes:
-        p.join()
+        p.join()    
 
-    
-    stat_file = open("results.txt", "a", encoding="utf8")
-    print("*********END OF TRAINING************", file=stat_file)
-    stat_file.close()
-    
+    print("*********END OF TRAINING************")
+        
     torch.save(model_a.state_dict(),'model_a.pth')
     torch.save(model_c.state_dict(),'model_c.pth')
-    stat_file = open("results.txt", "a", encoding="utf8")
-    print("### SAVED ACTOR AND CRITIC MODELS. ###", file=stat_file)
-    stat_file.close()
+    print("### SAVED ACTOR AND CRITIC MODELS. ###")
