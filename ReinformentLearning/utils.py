@@ -17,7 +17,7 @@ def create_graph(x, a):
     pyg_graph = from_networkx(nx_graph) # convert a networkx graph into a pyg graph 
     pyg_graph.weight = None
     pyg_graph.num_nodes = None
-    pyg_graph.x = torch.tensor(x.reshape(-1, 1), dtype = torch.int) # feeding node features
+    pyg_graph.x = torch.tensor(x.reshape(-1, 1), dtype = torch.float) # feeding node features
     #pyg_graph.y = y # feeding labels
     return pyg_graph
 
