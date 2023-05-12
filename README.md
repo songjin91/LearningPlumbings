@@ -1,6 +1,6 @@
 # LearningPlumbings
 
-This is the python implementation of the paper "Graph Neural Networks and 3-Dimensional Topology" based on PyTorch and PyTorch Geometric.
+This is the python implementation of the paper ["Graph Neural Networks and 3-Dimensional Topology"](https://arxiv.org/abs/2305.05966) based on PyTorch and PyTorch Geometric.
 
 ### Requirements
   - PyTorch 2.0.0
