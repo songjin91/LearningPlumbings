@@ -9,8 +9,8 @@ class Actor(nn.Module):
     def __init__(self):
         """ActorCritic algortihm.
         Args:
-            state_space (int): input size of state.
-            action_space (int): output size of action for policy.
+            state_space (1): input size of state.
+            action_space (5: output size of action for policy.
         """
         super().__init__()
         self.conv1 = GCNConv(1, 256)
@@ -48,11 +48,6 @@ class Actor(nn.Module):
 class Critic(nn.Module):
 
     def __init__(self):
-        """ActorCritic algortihm.
-        Args:
-            state_space (int): input size of state.
-            action_space (int): output size of action for policy.
-        """
         super().__init__()
         self.conv1 = GCNConv(2, 128)
         self.conv2 = SAGEConv(128, 128)
