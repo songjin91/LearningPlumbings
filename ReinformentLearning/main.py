@@ -15,9 +15,9 @@ torch.manual_seed(seed + 2)
 # Parameters
 SEED = 123               # random seed
 LR = 0.0005              # learning rate
-GAMMA = 0.99            # discount factor for future rewards
-MAX_STEP = 40          # maximum number of steps before termination
-MAX_EPISODE = 10000     # maximum number of episodes before termination
+GAMMA = 0.99             # discount factor for future rewards
+MAX_STEP = 40            # maximum number of steps in an episode before termination
+MAX_EPISODE = 10000      # maximum number of episodes
 
 # Initialize a global copy of actor-critic shared_model.
 model_a = Actor()
