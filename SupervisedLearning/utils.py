@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import torch
 import numpy as np
 import networkx as nx
@@ -8,9 +7,11 @@ from torch_geometric.data import Data
 
 
 def create_graph(x, a):
-    # Create a graph as a `Data` object implemented in PyG (Pytorch Geometric) from node features `x` and
-    # adjacency matrix `a`.
-    # `x` and `a` are supposed to be dense numpy arrays.
+    """
+    Create a graph as a `Data` object implemented in PyG (Pytorch Geometric) from node features `x` and
+    adjacency matrix `a`.
+    `x` and `a` are supposed to be dense numpy arrays.
+    """
     pyg_graph = Data()
     nx_graph = nx.from_numpy_matrix(a) # create a 'networkx' graph from a dense adjacency matrix 'a'
     pyg_graph = from_networkx(nx_graph) # convert a networkx graph into a pyg graph 
@@ -20,11 +21,12 @@ def create_graph(x, a):
     return pyg_graph
 
 def neumann_move(g_graph, neuman_move_type = np.random.randint(1,4)):
-    # This function returns a graph obtained by applying a Neumann move to the input graph `g_graph`.
-    # `g_graph` is an instance of `Data` object.
-    # `neuman_move_type` denotes the type of Neumann move to be applied. Its values are integers from 1 to 3.
-    # The default value of `neuman_move_type` is a random integer from 1 to 3.
-
+    """
+    This function returns a graph obtained by applying a Neumann move to the input graph `g_graph`.
+    `g_graph` is an instance of `Data` object.
+    `neuman_move_type` denotes the type of Neumann move to be applied. Its values are integers from 1 to 3.
+    The default value of `neuman_move_type` is a random integer from 1 to 3.
+    """
     # Step 1: Get node features and adjacency matrix as numpy dense arrays.
     node_label = g_graph.x.numpy()
     node_label = node_label.flatten()
